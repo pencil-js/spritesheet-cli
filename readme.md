@@ -2,7 +2,7 @@
 
 [![Package version](https://flat.badgen.net/npm/v/@pencil.js/spritesheet-cli)](https://www.npmjs.com/package/@pencil.js/spritesheet-cli)
 
-CLI for @pencil.js/spritesheet
+CLI for [@pencil.js/spritesheet](https://github.com/pencil-js/spritesheet).
 
 ## Installation
 
