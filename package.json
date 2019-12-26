@@ -1,6 +1,6 @@
 {
     "name": "@pencil.js/spritesheet-cli",
-    "version": "1.0.1",
+    "version": "1.3.0",
     "description": "CLI for @pencil.js/spritesheet",
     "keywords": [
         "spritesheet",
