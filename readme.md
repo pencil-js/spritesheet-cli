@@ -16,7 +16,7 @@ CLI for [@pencil.js/spritesheet](https://github.com/pencil-js/spritesheet).
 
     --path, -p          Path where to output files      (default: ./)
     --name, -n          Name for the files              (default: spritesheet)
-    --imageFormat, -f   Result image format             (default: png)
+    --outputFormat, -f  Result image format             (default: png)
     --cwd, -c           Base directory for all images   (default: ./)
     --silent, -s        Don't log success               (default: false)
 

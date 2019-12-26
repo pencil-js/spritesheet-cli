@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+
 const { writeFileSync, mkdirSync } = require("fs");
 const { sep, relative, dirname } = require("path");
 const meow = require("meow");
@@ -37,7 +38,7 @@ const run = async (cli) => {
 
     const { json, image } = await spritesheet(paths, flags);
 
-    const imagePath = `${flags.path}${sep}${flags.name}.${flags.imageFormat}`;
+    const imagePath = `${flags.path}${sep}${flags.name}.${flags.outputFormat}`;
     const jsonPath = `${flags.path}${sep}${flags.name}.json`;
 
     json.meta.image = relative(dirname(jsonPath), imagePath);
@@ -62,7 +63,7 @@ const index = meow(`
     Options
         --path, -p          Path where to output files      (default: ./)
         --name, -n          Name for the files              (default: spritesheet)
-        --imageFormat, -f   Result image format             (default: png)
+        --outputFormat, -f  Result image format             (default: png)
         --cwd, -c           Base directory for all images   (default: ./)
         --silent, -s        Don't log success               (default: false)
 
@@ -80,7 +81,7 @@ const index = meow(`
             type: "string",
             default: "spritesheet",
         },
-        imageFormat: {
+        outputFormat: {
             alias: "f",
             type: "string",
             default: "png",
