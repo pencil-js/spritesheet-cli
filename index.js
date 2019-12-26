@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const { writeFileSync, mkdirSync } = require("fs");
+const { writeFile, mkdir } = require("fs").promises;
 const { sep, relative, dirname } = require("path");
 const meow = require("meow");
 const { hasMagic, sync } = require("glob");
@@ -45,14 +45,14 @@ const run = async (cli) => {
 
     process.chdir(startingWD);
 
-    mkdirSync(flags.path, {
+    await mkdir(flags.path, {
         recursive: true,
     });
 
-    writeFileSync(imagePath, image);
+    await writeFile(imagePath, image);
     log("✔️ Image created");
 
-    writeFileSync(jsonPath, JSON.stringify(json));
+    await writeFile(jsonPath, JSON.stringify(json));
     log("✔️ JSON created");
 };
 
@@ -64,6 +64,8 @@ const index = meow(`
         --path, -p          Path where to output files      (default: ./)
         --name, -n          Name for the files              (default: spritesheet)
         --outputFormat, -f  Result image format             (default: png)
+        --margin, -m,       Margin around images            (default: 1)
+        --no-crop           Don't crop images
         --cwd, -c           Base directory for all images   (default: ./)
         --silent, -s        Don't log success               (default: false)
 
@@ -85,6 +87,15 @@ const index = meow(`
             alias: "f",
             type: "string",
             default: "png",
+        },
+        margin: {
+            alias: "m",
+            type: "number",
+            default: 1,
+        },
+        crop: {
+            type: "boolean",
+            default: true,
         },
         cwd: {
             alias: "c",
