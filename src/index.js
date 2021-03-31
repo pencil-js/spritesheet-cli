@@ -1,10 +1,12 @@
 #!/usr/bin/env node
 
-const { writeFile, mkdir } = require("fs").promises;
-const { sep, relative, dirname } = require("path");
-const meow = require("meow");
-const { hasMagic, sync } = require("glob");
-const spritesheet = require("@pencil.js/spritesheet");
+import { writeFile, mkdir } from "fs/promises";
+import { sep, relative, dirname } from "path";
+import meow from "meow";
+import glob from "glob";
+import spritesheet from "@pencil.js/spritesheet";
+
+const { hasMagic, sync } = glob;
 
 const run = async (cli) => {
     const { input, flags } = cli;
@@ -36,12 +38,15 @@ const run = async (cli) => {
 
     log(`Packing ${paths.length} files ...`);
 
-    const { json, image } = await spritesheet(paths, flags);
-
     const imagePath = `${flags.path}${sep}${flags.name}.${flags.outputFormat}`;
     const jsonPath = `${flags.path}${sep}${flags.name}.json`;
 
-    json.meta.image = relative(dirname(jsonPath), imagePath);
+    const { json, image } = await spritesheet(paths, {
+        outputFormat: flags.outputFormat,
+        outputName: relative(dirname(jsonPath), imagePath),
+        margin: flags.margin,
+        crop: flags.crop,
+    });
 
     process.chdir(startingWD);
 

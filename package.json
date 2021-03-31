@@ -11,8 +11,9 @@
         "json"
     ],
     "bin": {
-        "spritesheet": "./index.js"
+        "spritesheet": "./src/index.js"
     },
+    "type": "module",
     "eslintConfig": {
         "extends": "@gmartigny/eslint-config"
     },
@@ -34,7 +35,7 @@
         "eslint": "^6.8.0"
     },
     "dependencies": {
-        "@pencil.js/spritesheet": "^1.4.0",
+        "@pencil.js/spritesheet": "^1.5.0",
         "glob": "^7.1.6",
         "meow": "^6.1.0"
     }
