@@ -1,6 +1,6 @@
 {
     "name": "@pencil.js/spritesheet-cli",
-    "version": "1.4.0",
+    "version": "1.5.0",
     "description": "CLI for @pencil.js/spritesheet",
     "keywords": [
         "spritesheet",
@@ -11,7 +11,7 @@
         "json"
     ],
     "bin": {
-        "spritesheet": "./src/index.js"
+        "spritesheet": "src/index.js"
     },
     "type": "module",
     "eslintConfig": {
