@@ -31,12 +31,12 @@
     },
     "homepage": "https://github.com/pencil-js/spritesheet-cli#readme",
     "devDependencies": {
-        "@gmartigny/eslint-config": "^1.4.2",
-        "eslint": "^6.8.0"
+        "@gmartigny/eslint-config": "^1.6.0",
+        "eslint": "^7.23.0"
     },
     "dependencies": {
         "@pencil.js/spritesheet": "^1.5.0",
         "glob": "^7.1.6",
-        "meow": "^6.1.0"
+        "meow": "^9.0.0"
     }
 }
