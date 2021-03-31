@@ -38,8 +38,8 @@ const run = async (cli) => {
 
     log(`Packing ${paths.length} files ...`);
 
-    const imagePath = `${flags.path}${sep}${flags.name}.${flags.outputFormat}`;
-    const jsonPath = `${flags.path}${sep}${flags.name}.json`;
+    const imagePath = `${flags.output}${sep}${flags.name}.${flags.outputFormat}`;
+    const jsonPath = `${flags.output}${sep}${flags.name}.json`;
 
     const { json, image } = await spritesheet(paths, {
         outputFormat: flags.outputFormat,
@@ -50,7 +50,7 @@ const run = async (cli) => {
 
     process.chdir(startingWD);
 
-    await mkdir(flags.path, {
+    await mkdir(flags.output, {
         recursive: true,
     });
 
@@ -66,7 +66,7 @@ const index = meow(`
         $ spritesheet <globPattern> [<options>]
 
     Options
-        --path, -p          Path where to output files      (default: ./)
+        --output, -o        Path where to output files      (default: ./)
         --name, -n          Name for the files              (default: spritesheet)
         --outputFormat, -f  Result image format             (default: png)
         --margin, -m,       Margin around images            (default: 1)
@@ -75,11 +75,11 @@ const index = meow(`
         --silent, -s        Don't log success               (default: false)
 
     Example
-        $ spritesheet *.png -cwd ./src/images/ --path ./dist/assets --name icons
+        $ spritesheet *.png -cwd ./src/images/ --output ./dist/assets --name icons
 `, {
     flags: {
-        path: {
-            alias: "p",
+        output: {
+            alias: "o",
             type: "string",
             default: "./",
         },

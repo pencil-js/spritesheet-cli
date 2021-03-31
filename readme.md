@@ -14,7 +14,7 @@ CLI for [@pencil.js/spritesheet](https://github.com/pencil-js/spritesheet).
 
 ### Options
 
-    --path, -p          Path where to output files      (default: ./)
+    --output, -o        Path where to output files      (default: ./)
     --name, -n          Name for the files              (default: spritesheet)
     --outputFormat, -f  Result image format             (default: png)
     --margin, -m,       Margin around images            (default: 1)
@@ -24,7 +24,7 @@ CLI for [@pencil.js/spritesheet](https://github.com/pencil-js/spritesheet).
 
 ### Example
 
-    $ spritesheet *.png -cwd ./src/images/ --path ./dist/assets --name icons
+    $ spritesheet *.png -cwd ./src/images/ --output ./dist/assets --name icons
 
 ## License
 
