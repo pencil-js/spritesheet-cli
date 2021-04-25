@@ -1,0 +1,34 @@
+{
+    "meta": {
+        "app": {{ homepage }},
+        "version": {{ version }},
+        "image": {{ outputName }},
+        "size": {
+            "w": {{ width }},
+            "h": {{ height }}
+        },
+        "scale": {{ scale }}
+    },
+    "frames": {{{ each , }}
+        {{ fileName }}: {
+            "frame": {
+                "x": {{ x }},
+                "y": {{ y }},
+                "w": {{ width }},
+                "h": {{ height }}
+            },
+            "rotated": {{ rotated }},
+            "trimmed": {{ trimmed }},
+            "spriteSourceSize": {
+                "x": {{ offsetX }},
+                "y": {{ offsetY }},
+                "w": {{ offsetWidth }},
+                "h": {{ offsetHeight }}
+            },
+            "sourceSize": {
+                "w": {{ sourceWidth }},
+                "h": {{ sourceHeight }}
+            }
+        }{{ /each }}
+    }
+}
